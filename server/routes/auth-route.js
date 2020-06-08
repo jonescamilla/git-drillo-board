@@ -1,6 +1,8 @@
 const router = require('express').Router();
 const passport = require('passport');
 
+const authController = require('../controllers/authController.js');
+
 //github login
 
 //  using passport to authenticate the github
@@ -13,16 +15,20 @@ router.get(
   })
 );
 
+/**
+ * @route   GET 
+ * @desc    <desc>
+ * @access  Public
+ */
 router.get('/fail', (req, res) => {
   res.status(200).send('FAILURE TO AUTHENTICATE');
 });
 
-//callback route for github to redirect (from passport-setup.js)
-// router.get('/github/redirect', (req, res) => {
-//     //test stuff
-//     // res.redirect("https://github.com/login/oauth/authorize")
-// });
-
+/**
+ * @route   GET 
+ * @desc    <desc>
+ * @access  Public
+ */
 router.get(
   '/github/callback',
   passport.authenticate('github', {
@@ -30,8 +36,10 @@ router.get(
     //placeholder
     failureRedirect: '/fail',
   }),
+  authController.saveAccessToken,
   (req, res) => {
     //if successful authentication:
+
     console.log('SUCCESSFUL AUTHENTICATION');
     res.redirect('/dashboard');
   }
