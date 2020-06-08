@@ -1,9 +1,9 @@
 /**
- * @module  App.jsx
- * @author Katty Polyak and
+ * @module  App
+ * @author  Jonathan
  * @date Sat, Jun 6, 2020
  * @description main rendering component
- */
+*/
 
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
@@ -27,9 +27,7 @@ class App extends Component {
           <Header />
           <Switch>
             <Route exact path="/" component={() => <LoginPage />} />
-            {/* Working on landing page container still */}
             <Route exact path="/dashboard" component={() => <LandingPageContainer />} />
-            {/* <Route exact path="/dashboard" component={() => <h1>Logged in</h1>} /> */}
             <Route exact path="/projectBoard" component={() => <ProjectPageContainer />} />
           </Switch>
         </main>

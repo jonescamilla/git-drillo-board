@@ -1,6 +1,6 @@
 /**
  * @module  LandingPageContainer
- * @author Katty Polyak
+ * @author  Jonathan
  * @date Sat, Jun 6, 2020
  * @description presentation component that renders a Landing Page component
  */
@@ -21,49 +21,31 @@ class LandingPageContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      header: {
-        title: 'Git Drillo Board',
-      },
+      // array of projects specific to the user id
       userProjects: [
-        {
-          projectName: 'foobar',
-          projectOwn: true,
-        },
-        {
-          projectName: 'foobar',
-          projectOwn: true,
-        },
-        {
-          projectName: 'foobar',
-          projectOwn: true,
-        },
-        {
-          projectName: 'foobar',
-          projectOwn: false,
-        },
-        {
-          projectName: 'foobar',
-          projectOwn: true,
-        },
-        {
-          projectName: 'foobar',
-          projectOwn: false,
-        },
-      ]
-    }
+        { projectName: 'foobar', projectOwn: true },
+        { projectName: 'foobar', projectOwn: true },
+        { projectName: 'foobar', projectOwn: true },
+        { projectName: 'foobar', projectOwn: false },
+        { projectName: 'foobar', projectOwn: false },
+        { projectName: 'foobar', projectOwn: false },
+      ],
+    };
   }
 
   createNewProject = () => {
-    console.log('create new project function has been invoked')
-  }
+    // send a response to the database
+    // pop up a form for the use to fill out with the repo link
+    console.log('create new project function has been invoked');
+  };
 
   render() {
     return (
       <div>
-        {/* <TitleBar header={this.state.header} returnToProjectsBoard={this.returnToProjectsBoard} /> */}
-        <div>
-          <LandingPage projectsArray={this.state.userProjects} createNewProject={this.createNewProject} />
-        </div>
+        <LandingPage
+          projectsArray={this.state.userProjects}
+          createNewProject={this.createNewProject}
+        />
       </div>
     );
   }
@@ -72,61 +54,3 @@ class LandingPageContainer extends Component {
 // export default connect(mapStateToProps, mapDispatchToProps)(LandingPageContainer);
 export default LandingPageContainer;
 
-
-// const loginState = {
-//   loginRedirect: function () { /* go to landing page AFTER github auth redirect */ },
-// }
-
-// const landingPageState  = {
-//   userId: String, /* this should be the log in cookie code gathered from oauth */
-//   owner: String, /* name of the person from the oauth cookie */
-
-//   projects = [
-//     {
-//       projectName: '',
-//       project_id: '',
-//       userIsOwner: true,
-//     }
-//   ],
-
-//   onMount: function() { /* fetch request to gather all the information in db that matches the userId.  the token will be sent in the header */ },
-
-//   createNewProjectBoard: function() { /* create funcitonality */},
-//   redirectToProject: function(projectId) { /* go to boardPage displaying every category and task in  */},
-
-//   // render ( /* render all project. render those that are owned differently */),
-// }
-
-// const boardPageState = {
-//   userId: {
-//     repoUrl: '',
-//     owner_id: '',
-//     toDo: [],
-//     inProgress: [],
-//   },
-//   userId: {
-//     repoUrl: '',
-//     owner_id: '',
-//     toDo: [],
-//     inProgress: [],
-//   },
-
-//   createNewTask: function() {},
-// }
-
-
-// let toDo = [
-//   { task: 'Create login button',
-//     tag: 'frontend',
-//     assignedDev: 'none',
-//     userId: 'string',
-//     commitMessage: '',
-//     commitUrl: '',
-//   },
-// ]
-// let inProgress = [
-//   { task: 'Create login button', tag: 'frontend', assignedDev: 'none' },
-//   { task: 'create basic project page', tag: 'frontend', assignedDev: 'none' },
-//   { task: 'set up button to make new project', tag: 'fullstack', assignedDev: 'none' },
-//   { task: 'set up button to make new project', tag: 'fullstack', assignedDev: 'none' },
-// ]
