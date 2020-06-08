@@ -1,15 +1,16 @@
 /**
  * @module  Task
  * @author  Jonathan
- * @date  Sat, Jun 6, 2020
+ * @date  Sun, Jun 7, 2020
  * @description presentation component that renders a single box for each task
- */
+*/
 
 import React from 'react';
 
 function Task (props) {
-  let taskStyling = props.taskInformation.pending ? { border: 'thin solid red' } : { };
-
+  // if the task is pending render the task differently 
+  let taskStyling = props.taskInformation.pending ? { border: 'thin solid red' } : { border: 'thin solid black' };
+  // render the task's information
   return(
     <div className="individualTask" style={taskStyling}>
       <p> Task: {props.taskInformation.task} </p>

@@ -1,20 +1,16 @@
 /**
  * @module  Project
  * @author Jonathan
- * @date  Sat, Jun 6, 2020
- * @description presentation component that renders each project info
+ * @date  Sun, Jun 7, 2020
+ * @description presentation component that renders each project
 */
 
 import React from 'react';
 
 function Project (props) {
-  let projectStyling = {};
-  if (props.projectInformation.projectOwn) {
-    projectStyling = { border: 'thin solid red' }
-  } else {
-    projectStyling = { border: 'thin solid black' }
-  }
-
+  // if project is owned by the user display the project differently
+  let projectStyling = props.projectInformation.projectOwn ? { border: 'thin solid red' } : { border: 'thin solid black' };
+  // render the project name
   return(
     <div className="individualProject" style={projectStyling}>
       <p> {props.projectInformation.projectName} </p>

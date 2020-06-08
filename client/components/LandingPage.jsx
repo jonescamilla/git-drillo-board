@@ -1,18 +1,19 @@
 /**
  * @module  LandingPage
- * @author Katty Polyak and
- * @date  Sat, Jun 6, 2020
- * @description presentation component that renders...
+ * @author Louis
+ * @date  Sun, Jun 7, 2020
+ * @description presentation component that renders all user projects with create project functionality
 */
 
 import React from 'react';
 
 import Project from './Project.jsx';
-// Landing Page displays our button to add a new project and boxes which link to a user's existing repositories
-// LandingPage.jsx
+
 
 function LandingPage(props) {
+  // store the rendered projects
   const renderedProjects = [];
+  // loop through array passed in props && pass the object to Project.jsx
   for (let i = 0; i < props.projectsArray.length; i++) {
     let project = props.projectsArray[i];
     renderedProjects.push(
@@ -21,8 +22,8 @@ function LandingPage(props) {
       />
     );
   }
-
-
+  
+  // render the create new project button && all tasks in array passed from props
   return (
     <div className="landingContainer">
       <div className="createProject">
@@ -34,10 +35,3 @@ function LandingPage(props) {
 }
 
 export default LandingPage;
-// drop down button
-// links to modal with drop down for repository drop down
-
-// button creates a new project board container
-
-// contains projects
-// links to individual board page

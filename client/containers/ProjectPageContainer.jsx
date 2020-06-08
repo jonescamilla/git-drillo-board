@@ -1,7 +1,7 @@
 /**
  * @module  BoardPageContainer
  * @author  Jonathan and Katty Polyak
- * @date Sat, Jun 6, 2020
+ * @date Sun, Jun 7, 2020
  * @description presentation component that renders 3 Category components
 */
 
@@ -22,6 +22,7 @@ class BoardPageContainer extends Component {
     super(props);
     this.state = {
       projectName: 'the ultimate foobar project',
+      createNewTaskPopUp: false,
       inProgress: [
         {
           task: 'Create login button',
@@ -80,24 +81,17 @@ class BoardPageContainer extends Component {
   }
 
   createNewTask = () => {
-    // post a new task with a specific status
-    console.log('new task created functionality has been invoked');
-  };
+    console.log('in create new task')
+    this.setState({
+      createNewTaskPopUp: !this.state.createNewTaskPopUp
+    });
+    console.log(this.state.createNewTaskPopUp);
+  }
 
-  taskButtonEdit = () => {
-    // edit the task name
-    console.log('edit task button functionality has been invoked');
-  };
-
-  returnToProjectsBoard = () => {
-    // back button
-    console.log('return to Projects Page functionality has been invoked');
-  };
-
-  deleteTask = () => {
-    // delete any tag
-    console.log('delete tag functionality has been invoked');
-  };
+  storeNewTask = () => {
+    let savedTask;
+    console.log(`${savedTask}`)
+  }
 
   render() {
     return (
@@ -105,12 +99,14 @@ class BoardPageContainer extends Component {
         <TitleBar projectName = {this.state.projectName}/>
         <div className="BoardPageContainer">
           <Category
+            popUpToggle = {this.state.createNewTaskPopUp}
             categoryName="In Progress"
             createNewTask={this.createNewTask}
             taskButtonEdit={this.taskButtonEdit}
             array={this.state.inProgress}
           />
           <Category
+            popUpToggle = {this.state.createNewTaskPopUp}
             categoryName="Done"
             createNewTask={this.createNewTask}
             taskButtonEdit={this.taskButtonEdit}
